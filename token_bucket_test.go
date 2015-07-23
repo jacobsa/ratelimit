@@ -18,8 +18,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/googlecloudplatform/gcsfuse/ratelimit"
 	. "github.com/jacobsa/ogletest"
+	"github.com/jacobsa/ratelimit"
 )
 
 func TestTokenBucket(t *testing.T) { RunTests(t) }

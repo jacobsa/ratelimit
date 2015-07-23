@@ -21,8 +21,8 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/googlecloudplatform/gcsfuse/ratelimit"
 	. "github.com/jacobsa/ogletest"
+	"github.com/jacobsa/ratelimit"
 )
 
 func TestThrottledReader(t *testing.T) { RunTests(t) }
