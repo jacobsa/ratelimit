@@ -105,7 +105,7 @@ func ChooseTokenBucketCapacity(
 
 	w := float64(window) / float64(time.Second)
 	capacityFloat := math.Floor(w * rateHz / N)
-	if !(capacityFloat > 0 && capacityFloat < float64(math.MaxUint64)) {
+	if !(capacityFloat >= 1 && capacityFloat < float64(math.MaxUint64)) {
 		err = fmt.Errorf(
 			"Can't use a token bucket to limit to %f Hz over a window of %v "+
 				"(result is a capacity of %f)",
