@@ -2,7 +2,4 @@
 # Cf. http://docs.travis-ci.com/user/languages/go/
 
 language: go
-
-go:
-  - 1.4.2
-  - tip
+go: 1.5
