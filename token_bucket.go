@@ -132,6 +132,9 @@ func ChooseTokenBucketCapacity(
 // to the given capacity. ChooseTokenBucketCapacity may help you decide on a
 // capacity.
 //
+// The token bucket starts full at time zero. If you would like it to start
+// empty, call tb.Remove(0, capacity).
+//
 // REQUIRES: rateHz > 0
 // REQUIRES: capacity > 0
 func NewTokenBucket(
@@ -140,6 +143,9 @@ func NewTokenBucket(
 	tb = &tokenBucket{
 		rateHz:   rateHz,
 		capacity: capacity,
+
+		creditTime: 0,
+		credit:     float64(capacity),
 	}
 
 	return

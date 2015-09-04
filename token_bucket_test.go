@@ -43,8 +43,13 @@ func (t *TokenBucketTest) CarefulAccounting() {
 	AssertEq(1, time.Nanosecond)
 	tb := ratelimit.NewTokenBucket(1e9, 4)
 
-	// The token starts empty, so initially we should be required to wait one
-	// tick per token.
+	// The token bucket starts full, so initially we should be able to claim its
+	// entire capacity without sleeping.
+	AssertEq(0, tb.Remove(0, 1))
+	AssertEq(0, tb.Remove(0, 3))
+
+	// Now the bucket is empty, so we should be required to wait one tick per
+	// token.
 	AssertEq(2, tb.Remove(0, 2))
 	AssertEq(3, tb.Remove(2, 1))
 
