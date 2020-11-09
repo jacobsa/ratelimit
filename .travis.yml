@@ -2,4 +2,7 @@
 # Cf. http://docs.travis-ci.com/user/languages/go/
 
 language: go
-go: 1.5
+arch:
+- amd64
+- ppc64le
+go: 1.13
